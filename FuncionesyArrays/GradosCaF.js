@@ -1,4 +1,4 @@
-//Crea una función que convierta grados Celsius a Fahrenheit.
+//Crea una función que convierta grados Celsius a Farenheit.
 
 console.log("Conversor de grados centigrados a farenheit");
 
