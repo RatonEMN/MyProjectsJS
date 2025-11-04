@@ -68,18 +68,20 @@ console.log("");//Salto de linea
 const producto_eliminar = prompt("Ingresa el nombre del producto: ");
 
 // Vamos a buscar la palabra y obtener su índice
-let indice = productos.indexOf(producto_eliminar); //REVISAR COMO FUNCIONA ESTE METODO
-console.log(`Índice encontrado: ${indice}`); // Muestra el indice: ejemplo: 1
+let indice = productos.indexOf(producto_eliminar); //El metodo indexOf recorre la cadena o arreglo, desde la pocision 0 y nos trae su posicion(indice)
+//console.log(`Índice encontrado: ${indice}`); // Muestra el indice: ejemplo: 1
 
-// Verificamos que el producto se encuentre en la lista
+//Si el indice, no es igual a -1, entonces eliminamos el dato con el metodo splice en la posicion que indica el indice:
 if (indice !== -1) {
-    productos.splice(indice, 1);
+    productos.splice(indice, 1); // (indice = posicion a eliminar , 1 = Cantidad de datos que queremos eliminar)
+    console.log("✅Producto eliminado.");
+    const opcion_menu = prompt("----Para regresar al menu, presione enter.----");
+    console.log("");//Salto de linea
+    menu();
 }else{
     console.log("El producto que ingresaste no existe, intentalo nuevamente");
     eliminar_producto();
 }
-
-console.log(productos); 
 
 }
 
