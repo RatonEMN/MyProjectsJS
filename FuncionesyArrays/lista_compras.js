@@ -4,12 +4,14 @@
 
 const prompt = require("prompt-sync")();
 
+const productos = ["manzana","pera"];
+
 
 function menu(){
 
-const productos = ["manzana","pera"];
 
-console.log("-----Lista de compras-----");
+
+console.log("===Lista de compras===");
 console.log("1. Agregar producto");
 console.log("2. Eliminar producto");
 console.log("3. Buscar producto");
@@ -19,23 +21,24 @@ console.log("5. Salir...");
 const opcion = prompt("Ingresa una opcion: ");
 const noOpcion = parseInt(opcion);
 
-  switch(noOpcion){
-    case isNaN:
+if(isNaN(noOpcion)){
     console.log("**********Por favor, ingresa un opcion válida.**********");
     console.log("");
     menu();
-    break;
+} else {
+
+  switch(noOpcion){
     case 1:
-    agregar_producto(productos);
+    agregar_producto();
     break;
     case 2:
-    eliminar_producto(productos);
+    eliminar_producto();
     break;
     case 3:
-    console.log("Opcion 3");
+    buscar_producto();
     break;  
     case 4:
-    ver_productos(productos);
+    ver_productos();
     break;
     case 5:
     //Salir
@@ -49,7 +52,9 @@ const noOpcion = parseInt(opcion);
 
 }
 
-function agregar_producto(productos){
+}
+
+function agregar_producto(){
 console.log("");//Salto de linea
 const producto_nuevo = prompt("Ingresa el nombre del nuevo producto: ");
 if (producto_nuevo.length==0) {
@@ -57,13 +62,15 @@ if (producto_nuevo.length==0) {
   agregar_producto();
 } else {
     productos.push(producto_nuevo);
-    console.log("✅Producto agregado");
-    console.log(""); //Salto de linea
+    console.log(`✅Se agrego a la lista el producto ${producto_nuevo}`);
+    const opcion_menu = prompt("----Para regresar al menu, presione enter.----");
+    console.log("");//Salto de linea
     menu();
 }
 }
 
-function eliminar_producto(productos){
+
+function eliminar_producto(){
 console.log("");//Salto de linea
 const producto_eliminar = prompt("Ingresa el nombre del producto: ");
 
@@ -85,7 +92,7 @@ if (indice !== -1) {
 
 }
 
-function ver_productos(productos){
+function ver_productos(){
     console.log("");//Salto de linea
     console.log("🔹Tus productos son los siguientes:");
     for(let i = 0; i <= productos.length-1; i++){
@@ -94,6 +101,29 @@ function ver_productos(productos){
     const opcion_menu = prompt("----Para regresar al menu, presione enter.----");
     console.log("");//Salto de linea
     menu();
+}
+
+
+function buscar_producto(){
+console.log("");//Salto de linea
+const producto_buscar = prompt("Ingresa el nombre del producto: ");
+
+// Vamos a buscar la palabra y obtener su índice
+let indice = productos.indexOf(producto_buscar); //El metodo indexOf recorre la cadena o arreglo, desde la pocision 0 y nos trae su posicion(indice)
+//console.log(`Índice encontrado: ${indice}`); // Muestra el indice: ejemplo: 1
+
+//Si el indice, no es igual a -1, entonces eliminamos el dato con el metodo splice en la posicion que indica el indice:
+if (indice !== -1) {
+    console.log(`✅El producto "${producto_buscar}" si esta en la lista`);
+    const opcion_menu = prompt("----Para regresar al menu, presione enter.----");
+    console.log("");//Salto de linea
+    menu();
+}else{
+    console.log(`⛔El producto "${producto_buscar}" no esta en la lista`);
+    const opcion_menu = prompt("----Para regresar al menu, presione enter.----");
+    console.log("");//Salto de linea
+    menu();
+}
 }
 
 menu();
