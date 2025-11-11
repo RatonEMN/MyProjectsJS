@@ -23,4 +23,10 @@ const autos = [
     }
 ];
 
+const autos_recientes = autos.filter(auto =>{
+    return auto.year >= 2015;
+});
+
+console.log(autos_recientes);
+
 //existen 2 formas de recorrer mi arreglo con filter y con foreach, tambien se pude hacer con un bucle for u of
