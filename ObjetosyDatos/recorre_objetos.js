@@ -16,7 +16,7 @@ const autos = [
     {
         marca: "Nissan",
         modelo: "Versa",
-        year: 2016,
+        year: 2017,
         color: "azul"
     },
     {
@@ -35,13 +35,19 @@ const autos_recientes = autos.filter(reciente =>{
     return reciente.year >= 2015;
 });
 
-console.log("---------Autos Recientes------------");
+//Este codigo se puede simplificar un un arrow function de la siguiente manera:
+//const autos_recientes = autos.filter(auto => auto.year >= 2015);
+
+console.log("---------Autos Recientes usando filter y forEach------------");
 
 //Imprimo mis resultados con forEach()
 autos_recientes.forEach(reciente => {
     
-    console.log(`${reciente.marca} ${reciente.modelo} ${reciente.year} ${reciente.color}`);
+    console.table(`${reciente.marca} ${reciente.modelo} ${reciente.year} ${reciente.color}`);
 });
+
+//Existe el metodo console.table, que me permite mostrar los datos en formato tabla:
+console.table(autos_recientes);
 console.log("-------------------------------------");
 
 
@@ -50,7 +56,7 @@ console.log("-------------------------------------");
 //Tambien se pueden imprimir solo con forEach
 //Imprimo los autos mas viejos con forEach()
     console.log(""); //Salto de linea   
-    console.log("-----------Autos Viejos----------------");
+    console.log("-----------Autos Viejos usando solo forEach----------------");
 
 autos.forEach(autos_viejos => {
     if(autos_viejos.year < 2015){
@@ -63,7 +69,7 @@ autos.forEach(autos_viejos => {
 
 //Usando un bucle for
 //Imprimo los autos que sean igual a 2016
-console.log("-----------Autos 2016----------------");
+console.log("-----------Autos 2016 unando un bucle for----------------");
 for(let i=0;i < autos.length; i++){ //Sintaxis de for(let i=0"Representa en donde inica i", i < objeto.length"Representa hasta cuando va a iterar",i++"Representa la cantidad en la cual va a estar iterando")
     //Se obtiene el numero de objeto(arreglo) en cada iteracion
     const auto = autos[i]; 
@@ -72,4 +78,20 @@ for(let i=0;i < autos.length; i++){ //Sintaxis de for(let i=0"Representa en dond
     } 
 }
 console.log("-------------------------------------");
-//existen 2 formas de recorrer mi arreglo con filter y con foreach, tambien se pude hacer con un bucle for u of
+
+//Usando for .... of 
+//Imprimir lo autos que sean igual al 2017
+console.log("-----------Autos > 2016 usando for...of ----------------");
+for(const auto of autos){
+    //Aplicmmos la condicion
+    if(auto.year > 2016){
+        console.log(`${auto.marca} ${auto.modelo} ${auto.year} ${auto.color}`);
+    }
+}
+console.log("-------------------------------------");
+
+// Existen varias formas de recorrer y filtrar arreglos de objetos:
+// 1️⃣ filter() + forEach()
+// 2️⃣ forEach() con condición
+// 3️⃣ bucle for tradicional
+// 4️⃣ bucle for...of
