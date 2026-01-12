@@ -44,7 +44,7 @@ if(isNaN(noOpcion)){
     //Salir
     break;
     default:
-    console.log("**********Por favor, ingresa un opcion válida.**********");
+    console.log("**********Por favor, ingresa una opcion válida.**********");
     console.log("");
     menu();
     break;
