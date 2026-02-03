@@ -127,3 +127,7 @@ if (indice !== -1) {
 }
 
 menu();
+
+
+//En este codigo se usa el metodo indexOf, el cual si no encuentra un dato, devuelve -1. Si lo encuentra, devuelve la posicion(indice) del dato en el array.
+
