@@ -112,7 +112,7 @@ const producto_buscar = prompt("Ingresa el nombre del producto: ");
 let indice = productos.indexOf(producto_buscar); //El metodo indexOf recorre la cadena o arreglo, desde la pocision 0 y nos trae su posicion(indice)
 //console.log(`Índice encontrado: ${indice}`); // Muestra el indice: ejemplo: 1
 
-//Si el indice, no es igual a -1, entonces eliminamos el dato con el metodo splice en la posicion que indica el indice:
+//Si el indice, no es igual a -1, entonces el producto si existe:
 if (indice !== -1) {
     console.log(`✅El producto "${producto_buscar}" si esta en la lista`);
     const opcion_menu = prompt("----Para regresar al menu, presione enter.----");
