@@ -62,9 +62,9 @@ console.log(obtenerIVA(100));
 // (Cuidado aquí: recuerda el truco de los paréntesis para devolver objetos).
 
 console.log("-----------Ejercicio 6----------------)");
-const crearUsuario = (nombre,edad) => {
-    return `Nombre: ${nombre}, Edad: ${edad}`
-};
+const crearUsuario = (nombre,edad) => ({
+   nombre , edad
+});
 
 console.log(crearUsuario("Emanuel",30));
 
