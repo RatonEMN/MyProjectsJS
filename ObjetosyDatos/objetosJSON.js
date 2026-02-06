@@ -28,6 +28,10 @@ const tareaPendiente = {
   } 
 };
 
+//Objeto original, antes de convertir a JSON:
+console.log("Objeto original:");
+console.log(tareaPendiente);
+console.log("-------------------------------------------------");
 
 //Convierto mi objeto a JSON:
 console.log("Objeto en formato JSON:");
@@ -45,9 +49,9 @@ console.log(tareaPendienteJSON);
 console.log("-------------------------------------------------");
 
 
-console.log("Objeto en formato JS:");
+console.log("Objeto en formato convertido de JSON -> JS:");
 const tareaPendienteJS = JSON.parse(tareaPendienteJSON);
 console.log(tareaPendienteJS);
 
-console.log("Propiedades después de convertir a JSON:");
+console.log("Propiedades después de convertir de JSON -> JS:");
 console.log(Object.keys(tareaPendienteJS));
