@@ -30,6 +30,8 @@ let contador = 0;
 const textoParrafo = document.getElementById("numero");
 const botonSumar = document.getElementById("sumar");
 const botonRestar = document.getElementById("restar");
+const inputManual = document.getElementById("inputManual");
+const btnActualizar = document.getElementById("btnActualizar");
 
 botonRestar.disabled = true;
 
@@ -69,17 +71,38 @@ function cambiarContador(valor) {
 // precio *= 2;    // precio = precio * 2
 // tiempo /= 2;    // tiempo = tiempo / 2
 
+// 2. Escuchamos el evento click del nuevo botón
+btnActualizar.addEventListener("click", () => {
+    // Leemos el .value del input
+    // Ojo: el value siempre viene como texto, así que usamos Number() para convertirlo
+    const nuevoValor = Number(inputManual.value);
+
+    if (!isNaN(nuevoValor) && nuevoValor >= 0) {
+        contador = nuevoValor; // Cambiamos nuestra variable global
+        actualizarVista();      // Refrescamos la interfaz
+        
+        // Ejemplo de modificación: Limpiar el input después de usarlo
+        inputManual.value = ""; 
+    } else {
+        alert("Por favor, ingresa un número válido (mayor o igual a 0)");
+    }
+});
+
+
+
 function actualizarVista() {
     textoParrafo.textContent = contador;
     
     if(contador === 0) { 
         botonRestar.disabled = true;
-        textoParrafo.classList.remove("activo");
-        textoParrafo.classList.add("oculto");
+            textoParrafo.classList.remove("activo");
+            textoParrafo.classList.add("oculto");
+        textoParrafo.style.backgroundColor = "white";
     }else{
         botonRestar.disabled = false;
         textoParrafo.classList.remove("oculto");
         textoParrafo.classList.add("activo");
+        textoParrafo.style.backgroundColor = "yellow";
     }
     
 };
