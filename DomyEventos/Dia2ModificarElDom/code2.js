@@ -32,6 +32,7 @@ const botonSumar = document.getElementById("sumar");
 const botonRestar = document.getElementById("restar");
 const inputManual = document.getElementById("inputManual");
 const btnActualizar = document.getElementById("btnActualizar");
+const inputContador = document.getElementById("inputContador");
 
 botonRestar.disabled = true;
 
@@ -65,7 +66,7 @@ function cambiarContador(valor) {
   actualizarVista();
 }
 
-//ATAJOS:
+//ATAJOS CON SIGNOS:
 // contador += 1;   // contador = contador + 1
 // total -= 5;     // total = total - 5
 // precio *= 2;    // precio = precio * 2
@@ -89,9 +90,21 @@ btnActualizar.addEventListener("click", () => {
 });
 
 
+inputContador.addEventListener("input", () => {
+  let nuevoValor = parseInt(inputContador.value);
+
+  if (isNaN(nuevoValor) || nuevoValor < 0) {
+    nuevoValor = 0;
+  }
+
+  contador = nuevoValor;
+  actualizarVista();
+});
+
 
 function actualizarVista() {
     textoParrafo.textContent = contador;
+    inputContador.value = contador; // 👈 AQUÍ USAMOS value
     
     if(contador === 0) { 
         botonRestar.disabled = true;
