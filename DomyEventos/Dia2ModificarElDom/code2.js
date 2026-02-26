@@ -23,8 +23,16 @@
 // el botón - se habilita
 // el número se pone verde
 
+//let contador = 0;
 
-let contador = 0;
+//Se agrega localStorage, el cual hace que mi valor que tengo en contador se guarde, y cuando recargue la pagina no se pierda la informacion
+let contador = localStorage.getItem("contador"); 
+
+if (contador === null) { //localStorage solo guarda datos tipo string, si no tengo ningun dato al inicial(null) en automatico le asignara un 0
+    contador = 0;
+} else {
+    contador = Number(contador);
+}
 
 //Seleccionamos los elementos del DOM:
 const textoParrafo = document.getElementById("numero");
@@ -34,13 +42,12 @@ const inputManual = document.getElementById("inputManual");
 const btnActualizar = document.getElementById("btnActualizar");
 const inputContador = document.getElementById("inputContador");
 
-botonRestar.disabled = true;
 
 //QUE PASARIA SI LLAMO A MI FUNCION ANTES DE SELECCIONARL EL DOM??
 actualizarVista();
 
 //Respuesta:
-//Algunos elementos los marcaria como undefined, haciendo que no funcione.
+//Algunos elementos los marcaria como undefined o Cannot read properties of null, haciendo que no funcione.
 //El orden correcto es el siguiente:
 // 1️⃣ seleccionar DOM
 // 2️⃣ lógica
@@ -63,6 +70,7 @@ botonRestar.addEventListener("click",() => {
 
 function cambiarContador(valor) {
   contador += valor; // contador = contador + (valor)
+  localStorage.setItem("contador", contador);
   actualizarVista();
 }
 
@@ -79,9 +87,7 @@ btnActualizar.addEventListener("click", () => {
     const nuevoValor = Number(inputManual.value);
 
     if (!isNaN(nuevoValor) && nuevoValor >= 0) {
-        contador = nuevoValor; // Cambiamos nuestra variable global
-        actualizarVista();      // Refrescamos la interfaz
-        
+        setContador(nuevoValor); //Se manda a llamar a la funcion setContadory y se le pasa el valor de(nuevoValor)
         // Ejemplo de modificación: Limpiar el input después de usarlo
         inputManual.value = ""; 
     } else {
@@ -97,8 +103,7 @@ inputContador.addEventListener("input", () => {
     nuevoValor = 0;
   }
 
-  contador = nuevoValor;
-  actualizarVista();
+  setContador(nuevoValor);
 });
 
 
@@ -119,3 +124,10 @@ function actualizarVista() {
     }
     
 };
+
+
+function setContador(valor) { //Esta funcion se encarga de actualizar la variable contador con el nuevo valor, y posteiormente llama a actualizar vista
+    contador = valor;
+    localStorage.setItem("contador", contador);
+    actualizarVista();
+}
