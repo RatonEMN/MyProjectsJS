@@ -1,1 +1,33 @@
-<!--Aqui va mi codigo html-->
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Formulario</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <h1>Mi Formulario</h1>
+
+    <form id="formulario">
+      <label>Nombre</label>
+      <input type="text" id="nombre" />
+
+      <label>Correo</label>
+      <input type="email" id="correo" />
+
+      <label>Edad</label>
+      <input type="number" id="edad" />
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <div id="errores"></div>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+  </body>
+</html>
