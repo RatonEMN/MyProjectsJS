@@ -118,7 +118,7 @@ function obtenerValores(){
 
 function clearContent(){
     operacionActual = null;
-    inputResultado.textContent = resultado;
+    inputResultado.textContent = 0;
     num1.value = "";
     num2.value = "";
 }
