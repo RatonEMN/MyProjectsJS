@@ -5,10 +5,14 @@
 boton = document.getElementById("btn");
 inputNombre = document.querySelector("#nombre");
 inputCiudad = document.querySelector("#ciudad");
+textoDiv = document.querySelector("#textoDiv");
+let inputComida = document.querySelector("#comida");
+let parrafoComida = document.querySelector("#parrafoComida");
 
 // ¿Cuál regresa una lista?
 
 parrafoNombre = document.querySelector("#parrafoNombre");
+//Aqui esta mal la respuesta, esto no esta regrensando una lista
 
 // ¿Cuál acepta cualquier selector CSS?
 
@@ -16,14 +20,13 @@ parrafosCiudad = document.querySelectorAll(".texto");
 
 
 
-textoDiv = document.querySelector("#textoDiv");
 
 
 //Eventos 
 
 //Click
 boton.addEventListener("click", function(){
-    textoDiv.innerHTML += "hiciste click";
+    textoDiv.innerHTML += "<br>hiciste click";
 });
 
 
@@ -46,7 +49,12 @@ inputCiudad.addEventListener("input",function(event){
 
 // submit
 
-formulario.addEventListener("submit", validarDatos);
+//formulario.addEventListener("submit", validarDatos);
+
 
 // change
 
+inputComida.addEventListener("change",function(event){
+    console.log("funciona")
+    parrafoComida.textContent = event.target.value || "Esperando que escribas...";
+});
