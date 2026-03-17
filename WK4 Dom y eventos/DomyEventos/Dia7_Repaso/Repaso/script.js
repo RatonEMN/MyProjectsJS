@@ -3,7 +3,14 @@
 // ¿Cuál regresa un solo elemento?
 
 boton = document.getElementById("btn");
-inputNombre = document.querySelector("#nombre");
+inputNombre = document.querySelector("#nombre_input");
+
+formulario = document.querySelector("#formulario");
+nombre_form = document.querySelector("#nombre");
+correo_form = document.querySelector("#correo");
+errores = document.querySelector("#errores");
+resultado = document.querySelector("#resultado");
+
 inputCiudad = document.querySelector("#ciudad");
 textoDiv = document.querySelector("#textoDiv");
 let inputComida = document.querySelector("#comida");
@@ -22,7 +29,7 @@ parrafosCiudad = document.querySelectorAll(".texto");
 
 
 
-//Eventos 
+//---------------------------------------EVENTOS-------------------------------------------------------- 
 
 //Click
 boton.addEventListener("click", function(){
@@ -46,10 +53,45 @@ inputCiudad.addEventListener("input",function(event){
 });
 
 
-
 // submit
 
-//formulario.addEventListener("submit", validarDatos);
+formulario.addEventListener("submit", validarDatos);
+
+function validarDatos(event) {
+    event.preventDefault();
+
+    errores.innerHTML = "";
+
+    let hayErrores = false;
+
+    const nombre = nombre_form.value.trim();
+    const correo = correo_form.value;
+
+    if (nombre === "") {
+        hayErrores = true;
+        errores.innerHTML += "El nombre es obligatorio <br>";
+    }
+
+    if (!correo.includes("@")) {
+        hayErrores = true;
+        errores.innerHTML += "El correo es obligatorio <br>";
+    }
+
+    if (hayErrores) {
+        resultado.innerHTML = "";
+        return;
+    }
+
+    mostrarDatos(nombre,correo);
+
+}
+
+
+function mostrarDatos(nombre,correo) {
+    
+    resultado.innerHTML = `El nombre es ${nombre} y el correo es ${correo}`;
+
+}
 
 
 // change
