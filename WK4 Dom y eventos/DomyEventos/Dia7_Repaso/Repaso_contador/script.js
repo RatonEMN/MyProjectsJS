@@ -9,7 +9,7 @@ const btn_sumar = document.querySelector("#sumar");
 const btn_restar = document.querySelector("#restar");
 const parrafo_contador = document.querySelector("#contador");
 
-contador = 0;
+let contador = 0;
 
 actulizar_dom();
 
