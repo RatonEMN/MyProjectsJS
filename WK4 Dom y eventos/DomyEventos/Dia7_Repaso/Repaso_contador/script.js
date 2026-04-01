@@ -11,7 +11,7 @@ const parrafo_contador = document.querySelector("#contador");
 
 let contador = 0;
 
-actulizar_dom();
+actulizar_dom();    
 
 function actualizar_contador(numero){
     contador += numero;

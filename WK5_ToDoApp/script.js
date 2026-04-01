@@ -27,3 +27,7 @@ btnSave.addEventListener("click",function(){
     inputTask.value = "";
 
 });
+
+
+//Tengo que cambiar mi array, a un array de objetos, para guardar el estado de las tareas, tambien es recomenable asignarles un numero ID para que sea mas facil hacer el CRUD
+//CRUD ---------> Create Read Update Delete
