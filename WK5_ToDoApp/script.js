@@ -13,11 +13,18 @@ const btnSave = document.querySelector("#save");
 const lisTask = document.querySelector("#tasks");
 
     //Este es mi array en donde guardare mis tareas
-const tareas = ["Lavar los trastes","Lavar la ropa"];
+const tareas = [
+    {id:1, tarea:"Lavar la ropa", estatus:"pendiente"},
+    {id:2, tarea:"Comprar pollito", estatus:"pendiente"}
+];
 
 btnSave.addEventListener("click",function(){
     //Leemos el valor del inputTask
-    const nuevaTarea = inputTask.value;
+    const nuevaTarea = {
+        id: tareas.length + 1,
+        tarea: inputTask.value,
+        estatus: "pendiente"   
+    };
     
     tareas.push(nuevaTarea);
 
