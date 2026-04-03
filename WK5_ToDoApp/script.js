@@ -12,6 +12,8 @@ const btnSave = document.querySelector("#save");
 
 const lisTask = document.querySelector("#tasks");
 
+const listaUl = document.getElementById("mi-lista-dinamica");
+
     //Este es mi array en donde guardare mis tareas
 const tareas = [
     {id:1, tarea:"Lavar la ropa", estatus:"pendiente"},
@@ -33,8 +35,37 @@ btnSave.addEventListener("click",function(){
     //Limpiamos el input
     inputTask.value = "";
 
+    renderizar(tareas);
+
 });
 
 
-//Tengo que cambiar mi array, a un array de objetos, para guardar el estado de las tareas, tambien es recomenable asignarles un numero ID para que sea mas facil hacer el CRUD
+function renderizar(datos){
+    //Vamos a limpiar la lista para evitar algun dato duplicado:
+    listaUl.innerHTML = "";
+
+    datos.forEach(item => {
+        const li = document.createElement("li");
+        
+        const span = document.createElement("span");
+        span.textContent = item.tarea;
+
+        const boton = document.createElement("button");
+        boton.textContent = "Opciones";
+        boton.dataset.id = item.id; 
+
+        li.appendChild(boton);
+        li.appendChild(span);
+        listaUl.appendChild(li);
+
+    });
+
+    
+}
+
+renderizar(tareas);
+
 //CRUD ---------> Create Read Update Delete
+
+//Se crea una funcion para renderizar, hay que explicar lo que hace cada linea, hay que hacer crud en las tareas, 
+// hay que guardar los datos en local storage

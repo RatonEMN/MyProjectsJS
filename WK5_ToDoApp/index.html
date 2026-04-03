@@ -6,23 +6,31 @@
     <title>Mi To-Do App</title>
 
     <!-- CSS -->
+     <style>
+        li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+     </style>
     <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 
 <body>
-    <div style="text-align: center;">
+    <div>
         <h1>Mi To-Do App</h1>
     </div>
     
-    <div style="text-align: center;">
+    <div>
         <input type="text" id="inputTask" placeholder="Escribe una tarea">
         <button id="save">Guardar</button>
     </div>
 
     <br>
 
-    <div style="text-align: center;border: 1px solid black;" id="tasks">
+    <div style="border: 1px solid black;" id="tasks">
         <h3>Mis tareas</h3>
+        <ul id="mi-lista-dinamica"></ul>
         
     </div>
 
