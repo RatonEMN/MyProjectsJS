@@ -12,6 +12,19 @@
             align-items: center;
             gap: 10px;
         }
+
+        .btn-editar {
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .btn-editar:hover {
+            background-color: #357ABD;
+        }
      </style>
     <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
@@ -26,13 +39,39 @@
         <button id="save">Guardar</button>
     </div>
 
+    <div id="errores"></div>
+
     <br>
 
     <div style="border: 1px solid black;" id="tasks">
         <h3>Mis tareas</h3>
         <ul id="mi-lista-dinamica"></ul>
-        
     </div>
+
+
+    <!--Gemini me ayudo a hacer este modal, inicialmente tiene la propiedad display: none para que no se vea-->
+    <div id="miModal" class="modal-container" style="display: none;">
+    
+    <div class="modal-contenido">
+        <h3>Editar Item</h3>
+        
+        <label>Tarea:</label>
+        <input type="text" id="tareaModal">
+        
+        <label>Estatus:</label>
+        <select id="selectEstatus">
+            <option value="pendiente">Pendiente</option>
+            <option value="completado">Completado</option>
+        </select>
+
+        <div class="botones-modal">
+            <button id="guardarModal">Guardar</button>
+            <button id="cancelarModal">Cancelar</button>
+            <hr>
+            <button id="eliminarModal" style="color: red;">Eliminar este item</button>
+        </div>
+    </div>
+</div>
 
     
 
