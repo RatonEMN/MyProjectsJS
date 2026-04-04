@@ -20,22 +20,48 @@ const tareas = [
     {id:2, tarea:"Comprar pollito", estatus:"pendiente"}
 ];
 
+let miArray;
+
+// 1. Intentamos leer del localStorage
+let misTareas = localStorage.getItem("tareas");
+
+if (misTareas === null) {
+    // ESCENARIO 1: No hay nada guardado.
+    // Usamos tus datos iniciales y los guardamos por primera vez
+    miArray = tareas;
+    localStorage.setItem("tareas", JSON.stringify(miArray));
+    console.log("Se cargaron los datos iniciales por primera vez.");
+} else {
+    // ESCENARIO 2: Ya había algo. 
+    // Lo "desempaquetamos" con JSON.parse
+    miArray = JSON.parse(misTareas);
+    console.log("Se cargaron los datos que ya estaban en memoria.");
+}
+
+// Ahora 'misProductos' ya es un Array de objetos listo para usar
+console.log(misTareas);
+
+
+
+
 btnSave.addEventListener("click",function(){
     //Leemos el valor del inputTask
     const nuevaTarea = {
-        id: tareas.length + 1,
+        id: miArray.length + 1,
         tarea: inputTask.value,
         estatus: "pendiente"   
     };
     
-    tareas.push(nuevaTarea);
+    miArray.push(nuevaTarea);
 
-    console.log(tareas);
+    localStorage.setItem("tareas", JSON.stringify(miArray));
+
+    console.log(miArray);
 
     //Limpiamos el input
     inputTask.value = "";
 
-    renderizar(tareas);
+    renderizar(miArray);
 
 });
 
@@ -63,7 +89,7 @@ function renderizar(datos){
     
 }
 
-renderizar(tareas);
+renderizar(miArray);
 
 //CRUD ---------> Create Read Update Delete
 

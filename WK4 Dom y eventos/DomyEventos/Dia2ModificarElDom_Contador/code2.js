@@ -28,7 +28,7 @@
 //Se agrega localStorage, el cual hace que mi valor que tengo en contador se guarde, y cuando recargue la pagina no se pierda la informacion
 let contador = localStorage.getItem("contador"); 
 
-if (contador === null) { //localStorage solo guarda datos tipo string, si no tengo ningun dato al inicial(null) en automatico le asignara un 0
+if (contador === null) { //localStorage solo guarda datos tipo string, si no tengo ningun dato al iniciar(null) en automatico le asignara un 0
     contador = 0;
 } else {
     contador = Number(contador);
