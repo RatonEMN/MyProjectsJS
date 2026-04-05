@@ -131,8 +131,9 @@ function renderizar(datos) {
 renderizar(miArrayTareas);
 
 
+//Agregamos un listener en la lista que tenemos para saber que boton seleccionamos por medio de su ID
 listaUl.addEventListener("click", function (e) {
-    // 1. Verificamos si el elemento clicado tiene la clase 'btn-editar'
+    // 1. Verificamos si el elemento clicado tiene la clase 'btn-editar', para saber que es un elemento de mi lista
     if (e.target.classList.contains("btn-editar")) {
 
         // 2. Obtenemos el ID que guardamos en el atributo data-id
@@ -143,11 +144,12 @@ listaUl.addEventListener("click", function (e) {
     }
 });
 
-let idSeleccionado = null; // Variable global para saber qué estamos editando
+let idSeleccionado = null; // Variable global para saber qué estamos editando, aunque segun chatgpt no es la mejor opcion
 
 function abrirModal(id) {
     // 1. Buscamos el objeto en nuestro array que coincida con el ID
     const itemAEditar = miArrayTareas.find(item => item.id === id);
+    //Importante con el metodo find nos traemos el objeto completo, no el indice en este caso itemEditar es mi objeto,ejemplo: {id:0,tarea:"nueva tarea",estatus:"pendiente"}
 
     if (itemAEditar) {
         idSeleccionado = id; // Guardamos el ID para saber a quién actualizar luego
@@ -196,6 +198,7 @@ btnSaveModal.addEventListener("click", function () {
     //Buscar el indice de mi item por medio del id
     let indice = miArrayTareas.findIndex(tarea => tarea.id === idSeleccionado); //El metodo findIndex recorre en el array de objetos la tarea con el id que coindica con el idSeleccionado
 
+    //Obtenemos los datos de los inputs que tenemos en el modal
     const tareaEditada = inputModal.value.trim();
     const estatus = estatusTarea.value;
 
@@ -205,6 +208,7 @@ btnSaveModal.addEventListener("click", function () {
         return; // ¡AQUÍ ESTÁ EL TRUCO! Detiene la función del botón por completo
     }
 
+    //Si el input no esta vacio, guardamos los nuevos datos en el array
     miArrayTareas[indice].tarea = tareaEditada;
     miArrayTareas[indice].estatus = estatus;
 
