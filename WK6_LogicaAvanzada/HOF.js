@@ -16,3 +16,13 @@ const nombres = productos.map(function(objeto){
 });
 
 console.log(nombres);
+
+//Parte 2: Filter
+
+//Filtra los productos que cuesten mas de 100
+
+const productosCaros = productos.filter(function(objeto){
+  return objeto.precio > 100;
+});
+
+console.log(productosCaros);
