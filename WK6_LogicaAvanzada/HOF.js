@@ -69,3 +69,44 @@ function callback(numero){
 const nuevoArray = miMap(numeros,callback);
 
 console.log(nuevoArray);
+
+
+
+//Reforzamiento de HOF
+ const saludar = () => console.log("Hola");
+
+const saludarLimitado = limitarEjecuciones(saludar, 3);
+
+
+function limitarEjecuciones(saludo, limite){
+  let contador = 0; 
+
+    return function() {
+    contador++;
+    
+    if (contador <= limite) {
+      saludo(); //No hace faltar poner un return por que mi funcion saludo ya imprime el resultado: "Hola"
+    }
+  };  
+
+}
+
+saludarLimitado();
+saludarLimitado();
+saludarLimitado();
+saludarLimitado();
+
+
+
+// EJERCICIO 2 — Usar HOF sin map/filter directamente
+
+const usuarios = [
+  { nombre: "Ana", edad: 17 },
+  { nombre: "Luis", edad: 22 },
+  { nombre: "Carlos", edad: 15 },
+  { nombre: "Marta", edad: 30 }
+];
+
+// 👉 Los nombres en MAYÚSCULAS
+// 👉 SOLO de los usuarios mayores de edad (18+)
+
