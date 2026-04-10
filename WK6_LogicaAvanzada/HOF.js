@@ -11,8 +11,8 @@ const productos = [
 // 👉 Crea un nuevo arreglo con solo los nombres
 
 
-const nombres = productos.map(function(objeto){
-    return objeto.nombre;
+const nombres = productos.map(function (objeto) {
+  return objeto.nombre;
 });
 
 console.log(nombres);
@@ -21,7 +21,7 @@ console.log(nombres);
 
 //Filtra los productos que cuesten mas de 100
 
-const productosCaros = productos.filter(function(objeto){
+const productosCaros = productos.filter(function (objeto) {
   return objeto.precio > 100;
 });
 
@@ -32,11 +32,11 @@ console.log(productosCaros);
 
 // 👉 Calcula el precio total de todos los productos
 
-const precioTotal = productos.reduce(function(acumulador, actual) {
+const precioTotal = productos.reduce(function (acumulador, actual) {
   return acumulador + actual.precio;
 }, 0);
 
-console.log("El precio total es: "+precioTotal);
+console.log("El precio total es: " + precioTotal);
 
 
 // 🧩 Parte 4: tu propio map
@@ -45,11 +45,11 @@ console.log("El precio total es: "+precioTotal);
 
 const numeros = [2, 4, 6, 8];
 
-function miMap(arreglo,callback) {
+function miMap(arreglo, callback) {
   // crear nuevo arreglo
   const nuevoArreglo = [];
   // recorrer arreglo
-  for(let i = 0; i <= arreglo.length-1; i++){
+  for (let i = 0; i <= arreglo.length - 1; i++) {
     // aplicar callback
     let resultado = callback(arreglo[i]);
     // guardar resultado
@@ -61,33 +61,33 @@ function miMap(arreglo,callback) {
   // retornar nuevo arreglo
 }
 
-function callback(numero){
-    return numero * 5;
+function callback(numero) {
+  return numero * 5;
 }
 
 
-const nuevoArray = miMap(numeros,callback);
+const nuevoArray = miMap(numeros, callback);
 
 console.log(nuevoArray);
 
 
 
 //Reforzamiento de HOF
- const saludar = () => console.log("Hola");
+const saludar = () => console.log("Hola");
 
 const saludarLimitado = limitarEjecuciones(saludar, 3);
 
 
-function limitarEjecuciones(saludo, limite){
-  let contador = 0; 
+function limitarEjecuciones(saludo, limite) {
+  let contador = 0;
 
-    return function() {
+  return function () {
     contador++;
-    
+
     if (contador <= limite) {
       saludo(); //No hace faltar poner un return por que mi funcion saludo ya imprime el resultado: "Hola"
     }
-  };  
+  };
 
 }
 
@@ -106,6 +106,43 @@ const usuarios = [
   { nombre: "Carlos", edad: 15 },
   { nombre: "Marta", edad: 30 }
 ];
+
+
+
+
+function mayoresHOF(array, mayuscula) {
+  const mayoresEdad = [];
+
+  for (let index = 0; index < array.length; index++) {
+    // console.log(`Index: ${index}`);
+    // console.log(`array.length: ${array.length}`);
+    // console.log(`nombre: ${array[index].nombre}`);
+    // console.log(`array: ${array[index]}`);    // const element = array[index];
+
+    let edad = array[index].edad;
+
+    if (edad > 17) {
+      let nombre = mayuscula(array[index].nombre);
+
+      mayoresEdad.push(nombre)
+    }
+  }
+  return mayoresEdad;
+
+  // retornar nuevo arreglo
+}
+
+
+function wordUpercase (nombre){
+  return nombre.toUpperCase();
+}
+
+
+const usuariosMayores = mayoresHOF(usuarios, wordUpercase);
+
+console.log(usuariosMayores);
+
+
 
 // 👉 Los nombres en MAYÚSCULAS
 // 👉 SOLO de los usuarios mayores de edad (18+)
