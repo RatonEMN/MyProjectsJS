@@ -1,5 +1,6 @@
 // 🧩 Parte 1: map
 
+
 // Tienes este arreglo:
 
 const productos = [
@@ -147,3 +148,25 @@ console.log(usuariosMayores);
 // 👉 Los nombres en MAYÚSCULAS
 // 👉 SOLO de los usuarios mayores de edad (18+)
 
+
+const nombresMayuscula = usuarios.filter(function(usuario){
+  return usuario.edad > 17;
+}).map(function(objeto){
+  return objeto.nombre.toUpperCase();
+})
+
+console.log(nombresMayuscula);
+
+
+
+
+// 👉 Obtener solo los nombres mayores de edad en mayuscula, con redude
+
+const mayoresDeEdad = usuarios.reduce(function (acumulador, user) {
+  if(user.edad > 17){
+    acumulador.push(user.nombre.toUpperCase());
+  }
+  return acumulador;
+}, []);
+
+console.log(mayoresDeEdad);
