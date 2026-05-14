@@ -4,13 +4,13 @@
 
 const prompt = require("prompt-sync")();
 
-usuarios = [
+const usuarios = [
   { user: "martino", nombre: "Jose Martinez", edad: 220 },
   { user: "perezma8", nombre: "Paco Perez", edad: 50 },
 ];
 
 const pedirUsuario = () => {
-  let user_prompt = prompt("Ingresa tu nombre: ");
+  let user_prompt = prompt("Ingresa tu usuario: ");
   let user = user_prompt.trim();
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -18,7 +18,7 @@ const pedirUsuario = () => {
         reject("No ingre campos vacios");
       } else {
         resolve(user);
-        console.log("eXITO");
+        console.log("Espere.....");
       }
     }, 1000);
   });
@@ -28,9 +28,9 @@ const validarUsuario = (user) => {
 return new Promise((resolve, reject) => {
   setTimeout(() => {
     if (usuarios.some((u) => u.user === user)) {
-      resolve(user);
-      console.log("Usuario valido");
-      console.log("Cargando perfil");
+        console.log("Usuario valido");
+        console.log("Cargando perfil....");
+        resolve(user);
     } else {
       reject("Usuario invalido");
     }
@@ -44,13 +44,14 @@ const cargarPerfil = (user) => {
     const objetoUser = usuarios.find((u) => u.user === user);
 
     if (objetoUser) {
-    console.log("--------------------------");
-    console.log("DATOS DEL PERFIL:");
-    console.log(`Nombre: ${objetoUser.nombre}`);
-    console.log(`Edad: ${objetoUser.edad}`);
-    console.log("--------------------------");
+        console.log("--------------------------");
+        console.log("DATOS DEL PERFIL:");
+        console.log(`Nombre: ${objetoUser.nombre}`);
+        console.log(`Edad: ${objetoUser.edad}`);
+        console.log("--------------------------");
+        resolve();
   } else {
-    console.log("Error: No se encontraron datos para ese usuario.");
+    reject("No se encontraron datos para ese usuario.");
   }
 
   }, 1000);
