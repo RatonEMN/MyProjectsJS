@@ -21,6 +21,9 @@ const saludarSencillo = (nombre) => `¡Hola, ${nombre} en una línea! 🚀`;
 // Cuando la función no recibe datos, usamos paréntesis vacíos ().
 const despedirse = () => "¡Adiós, nos vemos pronto! 💨";
 
+
+
+
 // --- EJEMPLOS DE USO EN CONSOLA ---
 console.log(saludarNormal("Gaby"));
 console.log(saludarConLlaves("Alex"));
