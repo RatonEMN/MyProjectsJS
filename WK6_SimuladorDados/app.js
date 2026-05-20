@@ -3,7 +3,38 @@ function obtenerRangoAleatorio(min, max) {
 }
 
 // Ejemplos de uso:
-const lanzarDado = obtenerRangoAleatorio(1, 6);   // Devuelve entre 1 y 6
-const edadAleatoria = obtenerRangoAleatorio(18, 65); // Devuelve entre 18 y 65
+   // Devuelve entre 1 y 6
 
-console.log(lanzarDado);
+const arregloDatos = [];
+
+
+function guardarDatos(veces){
+
+for (let i = 0; i < veces; i++) {
+    const lanzarDado = obtenerRangoAleatorio(1, 6);
+    arregloDatos.push(lanzarDado);
+}
+
+console.log(arregloDatos);
+    
+}
+
+
+guardarDatos(6);
+
+
+const arregloNuevo = [1,2,10,20];
+
+function promedio(arregloNuevo){
+let total = 0;
+
+    for (let index = 0; index < arregloNuevo.length; index++) {
+        let numero = arregloNuevo[index];
+        total = total + numero;
+    }
+
+    return total;
+
+}
+
+console.log(promedio(arregloNuevo));
