@@ -1,13 +1,16 @@
+
+
+//Funcion que me simula arrojar el dado, entre los numero 1 y 6
 function obtenerRangoAleatorio(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Ejemplos de uso:
-   // Devuelve entre 1 y 6
 
+//Defino mi arreglo en donde guardare mis datos
 const arregloDatos = [];
 
 
+//Funcion en dondo guardo los datos de las veces que arroje el dado
 function guardarDatos(veces){
 
 for (let i = 0; i < veces; i++) {
@@ -15,26 +18,47 @@ for (let i = 0; i < veces; i++) {
     arregloDatos.push(lanzarDado);
 }
 
-console.log(arregloDatos);
+console.log(`Estos son tus numeros ${arregloDatos}`);
+promedio(arregloDatos);
+conteo(arregloDatos); 
+}
+
+
+function promedio(arreglo){
+    let total = 0;
+    
+    for (let index = 0; index < arreglo.length; index++) {
+        let numero = arreglo[index];
+        total = total + numero;
+    }
+    
+    let promedio = total / arreglo.length;
+
+    console.log(`El promedio es ${promedio}`);
     
 }
 
 
-guardarDatos(6);
 
+function conteo(arreglo){
 
-const arregloNuevo = [1,2,10,20];
+    const conteoArreglo = {};
 
-function promedio(arregloNuevo){
-let total = 0;
+for (let i = 0; i < arreglo.length; i++) {
+    let numeroActual = arreglo[i];
 
-    for (let index = 0; index < arregloNuevo.length; index++) {
-        let numero = arregloNuevo[index];
-        total = total + numero;
+    if(conteoArreglo[numeroActual]){
+        conteoArreglo[numeroActual]++;
+    } else {
+        conteoArreglo[numeroActual] = 1;
     }
-
-    return total;
+}
+console.log(`Las veces que se repitieron los datos son:`);
+console.log(conteoArreglo);
 
 }
 
-console.log(promedio(arregloNuevo));
+
+
+//Ejecucion de la funcion de acuerdo
+guardarDatos(6);
