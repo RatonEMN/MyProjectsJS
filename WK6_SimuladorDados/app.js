@@ -1,4 +1,7 @@
-
+// Lanzar el dado
+// conteo
+// promedio
+// más repetido
 
 //Funcion que me simula arrojar el dado, entre los numero 1 y 6
 function obtenerRangoAleatorio(min, max) {
@@ -55,10 +58,33 @@ for (let i = 0; i < arreglo.length; i++) {
 }
 console.log(`Las veces que se repitieron los datos son:`);
 console.log(conteoArreglo);
+masRepetido(conteoArreglo);
+
+}
+
+
+function masRepetido(objeto){
+    // 1. Creamos variables para guardar el "récord" actual
+let maxValor = 0; // Empezamos con el número más bajo posible
+let maxNumero = "";       // Aquí guardaremos el nombre
+
+// 2. Recorremos el objeto clave por clave
+for (const numeroDado in objeto) {
+  const valor = objeto[numeroDado];
+
+  // 3. Si el valor actual es mayor que nuestro récord...
+  if (valor > maxValor) {
+    maxValor = valor;   // ...actualizamos el valor máximo
+    maxNumero = numeroDado; // ...y guardamos el numero mas repetido
+  }
+}
+
+console.log(`El numero que mas se repite es el ${maxNumero} con ${maxValor} veces.`);
 
 }
 
 
 
+
 //Ejecucion de la funcion de acuerdo
-guardarDatos(6);
+guardarDatos(5);
