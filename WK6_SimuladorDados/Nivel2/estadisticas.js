@@ -1,8 +1,8 @@
-const arreglo = [1, 2, 3, 4];
+// const arreglo = [1, 2, 3, 4];
 
-console.log(arreglo);
+// console.log(arreglo);  //Borrar
 
-function promedio(arreglo) {
+export function promedio(arreglo) {
   let total = 0;
 
   for (let index = 0; index < arreglo.length; index++) {
@@ -15,7 +15,7 @@ function promedio(arreglo) {
   // console.log(`El promedio es ${promedio}`);
 }
 
-function conteo(arreglo) {
+export function conteo(arreglo) {
   const conteoArreglo = {};
 
   for (let i = 0; i < arreglo.length; i++) {
@@ -36,7 +36,7 @@ function conteo(arreglo) {
 
 
 
-function masRepetido(objeto) {
+export function masRepetido(objeto) {
   // 1. Creamos variables para guardar el "récord" actual
   let maxValor = 0; // Empezamos con el número más bajo posible
   let maxNumero = ""; // Aquí guardaremos el nombre

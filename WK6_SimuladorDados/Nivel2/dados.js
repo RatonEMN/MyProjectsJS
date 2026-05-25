@@ -1,3 +1,6 @@
+import PromptSync from "prompt-sync";
+const prompt = PromptSync();
+
 //Funcion que me simula arrojar el dado, entre los numero 1 y 6
 function lanzarDado() {
     let max = 6; //Numeros de mi dado
@@ -10,8 +13,10 @@ function lanzarDado() {
 
 
 
-//Funcion en dondo guardo los datos de las veces que arroje el dado
-function guardarDatos(veces){
+//Funcion en donde guardo los datos de las veces que arroje el dado
+export function guardarDatos(){
+
+    const veces = prompt("Ingresa la cantidad de veces que vas a lanzar el dado: ");
 
     const datosDado = [];
 
@@ -22,8 +27,10 @@ for (let i = 0; i < veces; i++) {
 
 return datosDado;
 
+// console.log(datosDado);
+
 }
 
-console.log(guardarDatos(2));
+
 
 

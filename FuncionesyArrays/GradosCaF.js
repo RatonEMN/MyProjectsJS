@@ -8,7 +8,8 @@ console.log("Conversor de grados centigrados a farenheit");
 const escala = 1.8; //1.8 Equivale a la fraccion 9/5
 const partida_farenheit = 32;
 
-const prompt = require("prompt-sync")();
+import promptSync from 'prompt-sync';
+const prompt = promptSync();
 
 function conversor(){
 
