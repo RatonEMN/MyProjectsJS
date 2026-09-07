@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Mis tests</title>
+  </head>
+
+  <body>
+    <h1>Mi test</h1>
+
+    <script>
+
+             //Ambito de bloque
+
+            console.log("****************var***********");
+            var musica = "Rock";
+            console.log("Variable música antes del bloque: ",musica);
+            {
+                var musica = "pop";
+                console.log("Variable musica dentro del bloque",musica);
+            }
+            
+            console.log("Variable música antes del bloque: ",musica);
+
+            console.log("****************let***********");
+            let musica2 = "Rock";
+            console.log("Variable música antes del bloque: ",musica2);
+            {
+                let musica2= "pop";
+                console.log("Variable musica dentro del bloque",musica2);
+            }
+            
+            console.log("Variable música antes del bloque: ",musica2);
+
+    </script>
+    
+  </body>
+</html>
