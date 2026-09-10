@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Varibles</title>
+  </head>
+
+  <body>
+    <h1>Varibles</h1>
+
+    <script>
+
+      //Solo existen 2 formas principales para declarar variables
+
+            var name = "placido";
+            let nombre = "Placido Domingues";
+            //console.log(name);
+            //console.log(nombre);
+
+            //Ambito de bloque
+
+            console.log("****************var***********");
+            var musica = "Rock";
+            console.log("Variable música antes del bloque: ",musica);
+            {
+                var musica = "pop";
+                console.log("Variable musica dentro del bloque",musica);
+            }
+            
+            console.log("Variable música antes del bloque: ",musica);
+
+            console.log("****************let***********");
+            let musica2 = "Rock";
+            console.log("Variable música antes del bloque: ",musica2);
+            {
+                let musica2= "pop";
+                console.log("Variable musica dentro del bloque",musica2);
+            }
+            
+            console.log("Variable música antes del bloque: ",musica2);
+     
+      let a;
+      const PI = 3.1416;
+      console.log(PI);
+      //const NUEVE:
+
+      a = "kenai";
+
+      console.log(a);
+
+      const objeto = {
+        nombre: "Puerco",
+        edad: 95,
+      };
+
+      const colore = ["rojo", "verde", "azul"];
+
+      console.log(objeto);
+      console.log(colore);
+
+      objeto.correo = "puercopotter@correo.com";
+      colore.shift("rojo");
+
+      console.log(objeto);
+      console.log(colore);
+
+      const fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+      console.log(fruits);
+
+      document.getElementById("demo").innerHTML = fruits.shift();
+
+
+    </script>
+    
+  </body>
+</html>
