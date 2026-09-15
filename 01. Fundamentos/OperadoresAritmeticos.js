@@ -1,6 +1,6 @@
 
 // ============================================================
-// 1. OPERADORES ARITMÉTICOS
+console.log(`----------- 1. OPERADORES ARITMÉTICOS ------------`)
 // ============================================================
 //
 // Crea dos variables:
@@ -32,7 +32,7 @@ console.log(`El residuo de ${numero1} y ${numero2} es = `+numero1%numero2);
 console.log(`La potencia del ${numero1} elevado a ${numero2} es = `+numero1**numero2);
 
 // ============================================================
-// 2. OPERADORES DE COMPARACIÓN
+console.log(`--------- 2. OPERADORES DE COMPARACIÓN ------------`);
 // ============================================================
 //
 // Crea:
@@ -53,9 +53,16 @@ console.log(`La potencia del ${numero1} elevado a ${numero2} es = `+numero1**num
 // ============================================================
 
 // Escribe tu código aquí:
+let edad = 21;
+
+console.log(`La edad es mayor o igual a 18? `+(edad >= 18));
+console.log(`La edad es menor a 30? `+ (edad < 30));
+console.log(`La edad es igual a 21? `+ (edad === 21));
+console.log(`La edad es diferente a 25? `+ (edad !== 25));
+
 
 // ============================================================
-// 3. OPERADORES LÓGICOS
+console.log(`------------ 3. OPERADORES LÓGICOS -------------`)
 // ============================================================
 //
 // Crea las siguientes variables:
@@ -68,11 +75,12 @@ console.log(`La potencia del ${numero1} elevado a ${numero2} es = `+numero1**num
 // Después determina:
 //
 // 1. ¿Puede entrar por ser mayor de edad Y tener identificación?
+//      Si puede entrar
 //
 // 2. ¿Puede entrar por tener boleto O ser VIP?
-//
+//      Si puede entrar
 // 3. ¿NO es VIP?
-//
+//      Si es VIP
 // 4. Crea una condición llamada puedeEntrar que permita
 //    entrar si:
 //
@@ -87,3 +95,12 @@ console.log(`La potencia del ${numero1} elevado a ${numero2} es = `+numero1**num
 // ============================================================
 
 // Escribe tu código aquí:
+
+let miEdad = 18;
+let tieneIdentificacion = true;
+let tieneBoleto = false;
+let esVIP = true;
+
+let puedeEntrar = (miEdad>=18 && tieneIdentificacion) || esVIP;
+
+console.log(puedeEntrar);
