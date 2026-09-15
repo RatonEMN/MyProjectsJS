@@ -1,78 +1,364 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>Varibles</title>
+    <title>Variables</title>
   </head>
 
   <body>
-    <h1>Varibles</h1>
+    <h1>Variables</h1>
 
     <script>
+      //Solo existen 3 formas principales para declarar variables con: var,let y const.
 
-      //Solo existen 2 formas principales para declarar variables
+      // ============================================================
+      // VARIABLES EN JAVASCRIPT
+      // ============================================================
 
-            var name = "placido";
-            let nombre = "Placido Domingues";
-            //console.log(name);
-            //console.log(nombre);
+      // ============================================================
+      // 1. ¿QUÉ ES UNA VARIABLE?
+      // ============================================================
 
-            //Ambito de bloque
+      // Una variable es un nombre que usamos para guardar
+      // o referenciar un valor.
 
-            console.log("****************var***********");
-            var musica = "Rock";
-            console.log("Variable música antes del bloque: ",musica);
-            {
-                var musica = "pop";
-                console.log("Variable musica dentro del bloque",musica);
-            }
-            
-            console.log("Variable música antes del bloque: ",musica);
+      const nombrePersona = "Carlos";
+      const edadPersona = 25;
 
-            console.log("****************let***********");
-            let musica2 = "Rock";
-            console.log("Variable música antes del bloque: ",musica2);
-            {
-                let musica2= "pop";
-                console.log("Variable musica dentro del bloque",musica2);
-            }
-            
-            console.log("Variable música antes del bloque: ",musica2);
-     
-      let a;
-      const PI = 3.1416;
-      console.log(PI);
-      //const NUEVE:
+      console.log(nombrePersona);
+      console.log(edadPersona);
 
-      a = "kenai";
+      // ============================================================
+      // 2. DECLARAR Y ASIGNAR UNA VARIABLE
+      // ============================================================
 
-      console.log(a);
+      // Declarar una variable significa crearla.
+      // Asignar significa darle un valor.
 
-      const objeto = {
-        nombre: "Puerco",
-        edad: 95,
+      // Con let podemos declarar primero y asignar después.
+
+      let ciudad;
+
+      ciudad = "Querétaro";
+
+      console.log(ciudad);
+
+      // También podemos declarar y asignar
+      // en una sola línea.
+
+      let pais = "México";
+
+      console.log(pais);
+
+      // ============================================================
+      // 3. CONST
+      // ============================================================
+
+      // const se utiliza cuando NO necesitamos
+      // reasignar la variable.
+
+      const nombreUsuario = "Juan";
+
+      console.log(nombreUsuario);
+
+      // Esto produciría un error:
+      //
+      // nombreUsuario = "Pedro";
+
+      // Regla práctica:
+      //
+      // Usa const cuando la variable no necesita
+      // cambiar de referencia.
+
+      /* ============================================================
+   4. LET
+   ============================================================ */
+
+      // let se utiliza cuando necesitamos
+      // reasignar una variable.
+
+      let contador = 0;
+
+      console.log(contador);
+
+      contador = 1;
+
+      console.log(contador);
+
+      // Aquí estamos reasignando la variable:
+      //
+      // contador: 0 → 1
+
+      // Otro ejemplo:
+
+      let estadoUsuario = "offline";
+
+      estadoUsuario = "online";
+
+      console.log(estadoUsuario);
+
+      // ============================================================
+      // 5. CONST VS LET
+      // ============================================================
+
+      // const → no permite reasignación.
+      // let   → permite reasignación.
+
+      const paisUsuario = "México";
+
+      let edadUsuario = 20;
+
+      edadUsuario = 21;
+
+      // Esto produciría un error:
+      //
+      // paisUsuario = "España";
+
+      // Una forma sencilla de recordarlo:
+      //
+      // const → no reasignar
+      // let   → puede reasignarse
+
+      // ============================================================
+      // 6. CONST CON ARRAYS
+      // ============================================================
+
+      // const no significa que el contenido sea inmutable.
+      //
+      // Significa que la variable no puede ser reasignada
+      // a otra referencia.
+
+      const frutas = ["Manzana", "Plátano", "Naranja"];
+
+      // Podemos modificar el contenido del array.
+
+      frutas.push("Mango");
+
+      console.log(frutas);
+
+      // Pero no podemos reasignar la variable:
+      //
+      // frutas = ["Pera", "Uva"]; // Error
+
+      // ============================================================
+      // 7. CONST CON OBJETOS
+      // ============================================================
+
+      const persona = {
+        nombre: "Luis",
+        edad: 25,
       };
 
-      const colore = ["rojo", "verde", "azul"];
+      // Podemos modificar sus propiedades.
 
-      console.log(objeto);
-      console.log(colore);
+      persona.edad = 26;
 
-      objeto.correo = "puercopotter@correo.com";
-      colore.shift("rojo");
+      console.log(persona);
 
-      console.log(objeto);
-      console.log(colore);
+      // Pero no podemos reasignar el objeto:
+      //
+      // persona = {}; // Error
 
-      const fruits = ["Banana", "Orange", "Apple", "Mango"];
+      // Idea clave:
+      //
+      // const fija la referencia,
+      // no congela el contenido.
 
-      console.log(fruits);
+      // ============================================================
+      // 8. VAR
+      // ============================================================
 
-      document.getElementById("demo").innerHTML = fruits.shift();
+      // var es la forma antigua de declarar variables.
+      //
+      // Actualmente se recomienda utilizar
+      // let y const en código moderno.
 
+      var mensaje = "Hola";
 
+      mensaje = "Hola mundo";
+
+      console.log(mensaje);
+
+      // Una diferencia importante:
+      //
+      // var → function scope
+      // let → block scope
+      // const → block scope
+
+      // ============================================================
+      // 9. SCOPE
+      // ============================================================
+
+      // El scope determina dónde podemos acceder
+      // a una variable.
+
+      let nombreExterno = "Carlos";
+
+      {
+        let nombreInterno = "Pedro";
+
+        console.log(nombreInterno);
+      }
+
+      console.log(nombreExterno);
+
+      // Esto produciría un error:
+      //
+      // console.log(nombreInterno);
+      //
+      // Porque nombreInterno solo existe
+      // dentro del bloque.
+
+      // ============================================================
+      // 10. VAR Y BLOCK SCOPE
+      // ============================================================
+
+      // var no respeta el scope de bloque.
+
+      var nombreGlobal = "Carlos";
+
+      {
+        var otroNombre = "Pedro";
+      }
+
+      console.log(otroNombre);
+
+      // otroNombre puede utilizarse fuera del bloque.
+      //
+      // Esta es una de las razones por las que
+      // var puede provocar comportamientos inesperados.
+
+      // ============================================================
+      // 11. HOISTING
+      // ============================================================
+
+      // JavaScript procesa las declaraciones
+      // antes de ejecutar el código.
+      //
+      // Con var podemos observar este comportamiento.
+
+      console.log(nombreHoisted);
+
+      var nombreHoisted = "Carlos";
+
+      // Conceptualmente podemos imaginarlo así:
+      //
+      // var nombreHoisted;
+      // console.log(nombreHoisted);
+      // nombreHoisted = "Carlos";
+      //
+      // Por eso obtenemos:
+      //
+      // undefined
+
+      // Con let y const existe el
+      // Temporal Dead Zone (TDZ).
+
+      // console.log(edadTDZ); // ReferenceError
+
+      let edadTDZ = 25;
+
+      // Regla práctica:
+      //
+      // Declara tus variables antes de utilizarlas.
+
+      // ============================================================
+      // 12. REASIGNACIÓN
+      // ============================================================
+
+      // Reasignar significa darle un nuevo valor
+      // a una variable existente.
+
+      let puntos = 10;
+
+      puntos = 20;
+
+      console.log(puntos);
+
+      // El valor de puntos cambió:
+      //
+      // 10 → 20
+
+      // Con const no podemos hacer esto:
+      //
+      // const precio = 100;
+      // precio = 200; // Error
+
+      // ============================================================
+      // 13. EJEMPLO PRÁCTICO
+      // ============================================================
+
+      // Información que no necesitamos reasignar:
+
+      const producto = "Laptop";
+      const precioProducto = 15000;
+
+      // Información que puede cambiar:
+
+      let cantidadProducto = 1;
+
+      cantidadProducto = 2;
+
+      // Podemos utilizar las variables
+      // para realizar cálculos.
+
+      const totalCompra = precioProducto * cantidadProducto;
+
+      console.log(producto);
+      console.log(precioProducto);
+      console.log(cantidadProducto);
+      console.log(totalCompra);
+
+      // ============================================================
+      // 14. REGLA GENERAL
+      // ============================================================
+
+      // Usa const por defecto.
+
+      const usuarioActual = "Carlos";
+
+      // Usa let cuando necesites reasignar.
+
+      let numeroActual = 0;
+
+      numeroActual = 10;
+
+      // Evita var en código moderno.
+
+      // ============================================================
+      // RESUMEN
+      // ============================================================
+      //
+      // const
+      // → No permite reasignación.
+      // → Se usa cuando la referencia no cambiará.
+      //
+      // let
+      // → Permite reasignación.
+      // → Se usa cuando el valor puede cambiar.
+      //
+      // var
+      // → Forma antigua de declarar variables.
+      // → Tiene function scope.
+      // → Generalmente se evita.
+      //
+      // const con objetos y arrays
+      // → El contenido puede modificarse.
+      // → La referencia no puede reasignarse.
+      //
+      // scope
+      // → Determina dónde podemos utilizar una variable.
+      //
+      // hoisting
+      // → JavaScript procesa las declaraciones
+      //   antes de ejecutar el código.
+      //
+      // Regla práctica:
+      //
+      // const por defecto.
+      // let cuando necesites reasignar.
+      // var normalmente se evita.
     </script>
-    
   </body>
 </html>
